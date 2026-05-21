@@ -1,0 +1,177 @@
+:root {
+    --primary-dark: #0f3d4c; 
+    --accent: #f26a50;       
+    --accent-hover: #e0553a;
+    --bg-color: #f7f9fc;
+    --card-bg: #ffffff;
+}
+body { 
+    font-family: 'Nunito', sans-serif; 
+    background-color: var(--bg-color); 
+    color: #333;
+}
+.fw-extrabold { font-weight: 800; }
+.text-primary-dark { color: var(--primary-dark) !important; }
+.text-accent { color: var(--accent) !important; }
+
+.btn-accent {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+}
+.btn-accent:hover {
+    background-color: var(--accent-hover);
+    color: white;
+}
+.btn-primary-dark {
+    background-color: var(--primary-dark);
+    color: white;
+}
+.btn-primary-dark:hover {
+    background-color: #0b2d39;
+    color: white;
+}
+.btn-outline-primary-dark {
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-dark);
+    font-weight: 700;
+}
+.btn-outline-primary-dark:hover {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(15, 61, 76, 0.4), rgba(15, 61, 76, 0.6)), 
+    url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1920&q=80') center/cover;
+    height: 60vh;
+    min-height: 400px;
+    color: white;
+}
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.filter-wrapper {
+    background-color: var(--primary-dark);
+    padding: 25px 30px;
+    border-radius: 20px;
+    margin-top: -60px;
+    box-shadow: 0 15px 35px rgba(15, 61, 76, 0.2);
+    position: relative;
+    z-index: 10;
+}
+.filter-wrapper .form-control, 
+.filter-wrapper .form-select {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 600;
+}
+.filter-wrapper .form-control::placeholder { color: rgba(255, 255, 255, 0.5); }
+.filter-wrapper .form-select option { color: #333; }
+
+.room-card { 
+    border-radius: 20px;
+    border: none;
+    background: var(--card-bg);
+    transition: all 0.3s ease; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+}
+.room-card:hover { 
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+.room-card .card-img-top { 
+    height: 240px; 
+    object-fit: cover; 
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.favorite-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255,255,255,0.8);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-dark);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.favorite-icon:hover { color: var(--accent); transform: scale(1.1);}
+.badge-Standard { background-color: #e3f2fd; color: #1976d2; }
+.badge-Deluxe { background-color: #fce4ec; color: #c2185b; }
+.badge-Homestay { background-color: #e8f5e9; color: #388e3c; }
+.room-badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+body { background-color: #f8f9fa; }
+.hero-section {
+    background: linear-gradient(rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.7)),
+    url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1920&q=80') center/cover;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: -40px; 
+}
+
+.filter-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.room-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.room-card:hover { 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+.card-img-top { height: 220px; object-fit: cover; }
+.price-text { color: #e74c3c; font-size: 1.25rem; font-weight: bold; }
+
+.error-message {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 4px;
+    display: none;
+}
+.is-invalid {
+    border: 2px solid var(--accent) !important;
+    background-color: #fff5f3 !important;
+}
+
+
+footer {
+    background-color: var(--primary-dark);
+}
+.transition {
+    transition: all 0.3s ease;
+}
+.hover-accent:hover {
+    color: var(--accent) !important;
+    transform: translateY(-3px);
+}
+.hover-white:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+    padding-left: 5px;
+}

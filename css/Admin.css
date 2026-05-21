@@ -1,0 +1,58 @@
+:root {
+    --primary-dark: #0f3d4c; 
+    --accent: #f26a50;       
+    --bg-color: #f4f6f9;
+}
+body { 
+    font-family: 'Nunito', sans-serif; 
+    background-color: var(--bg-color); 
+    color: #333;
+}
+.bg-primary-dark { background-color: var(--primary-dark) !important; }
+.text-primary-dark { color: var(--primary-dark) !important; }
+.text-accent { color: var(--accent) !important; }
+.fw-extrabold { font-weight: 800; }
+
+.btn-accent { background-color: var(--accent); color: white; border: none; }
+.btn-accent:hover { background-color: #e0553a; color: white; }
+
+.custom-tabs { border-bottom: 2px solid #e9ecef; }
+.custom-tabs .nav-link { 
+    color: #6c757d; 
+    border: none; 
+    padding: 10px 20px;
+    margin-bottom: -2px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+.custom-tabs .nav-link:hover { color: var(--primary-dark); }
+.custom-tabs .nav-link.active { 
+    color: var(--primary-dark); 
+    background: transparent; 
+    border-bottom: 2px solid var(--primary-dark); 
+}
+
+.custom-table th { 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+    letter-spacing: 0.5px; 
+    color: #6c757d; 
+    border-bottom: 2px solid #e9ecef;
+}
+.custom-table td { border-bottom: 1px solid #f8f9fa; padding: 15px 10px; }
+.custom-table .room-thumbnail { 
+    width: 70px; 
+    height: 50px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.badge-soft-warning { background-color: #fff3cd; 
+    color: #856404; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;}
+.badge-soft-success { background-color: #d4edda; 
+    color: #155724; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;}
+.badge-soft-danger { background-color: #f8d7da; 
+    color: #721c24; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;}
+.badge-type { background-color: #e9ecef; 
+    color: #495057; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;}

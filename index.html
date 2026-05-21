@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayEasy - Khám phá điểm đến lý tưởng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-extrabold text-primary-dark d-flex align-items-center" href="index.html">
+                <i class="fa-solid fa-house-chimney me-2 text-accent"></i>StayEasy
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                
+                
+                <a href="admin.html" class="btn btn-outline-primary-dark rounded-pill px-4">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section">
+        <div class="container h-100 d-flex flex-column justify-content-center">
+            <h1 class="hero-title">Tìm chỗ nghỉ lý<br>tưởng của bạn</h1>
+            <p class="hero-subtitle">Khám phá những không gian tuyệt vời nhất cho kỳ nghỉ sắp tới.</p>
+            <div>
+                <a href="#booking-section" class="btn btn-accent rounded-pill px-5 py-3 fw-bold mt-2">Khám Phá Ngay</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="booking-section">
+        <div class="filter-wrapper">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label text-white-50"><i class="fa-solid fa-bed me-1"></i> Loại phòng</label>
+                    <select class="form-select border-0 shadow-none" id="filter-type">
+                        <option value="all">Tất cả</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Deluxe">Deluxe</option>
+                        <option value="Homestay">Homestay</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label text-white-50"><i class="fa-solid fa-user-group me-1"></i> Khách tối thiểu</label>
+                    <input type="number" class="form-control border-0 shadow-none" id="filter-guests" placeholder="VD: 2" min="1">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label text-white-50"><i class="fa-solid fa-money-bills me-1"></i> Mức giá tối đa (VND)</label>
+                    <input type="number" class="form-control border-0 shadow-none" id="filter-price" placeholder="Không giới hạn">
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-accent w-100 rounded-pill fw-bold py-2 shadow" onclick="applyFilter()">Tìm Kiếm</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 mb-5 pt-3">
+            <h2 class="fw-extrabold mb-4 text-primary-dark">Gợi ý dành cho bạn</h2>
+            <div class="row g-4" id="room-list">
+                </div>
+        </div>
+    </div>
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="modal-header bg-primary-dark text-white border-0 py-3">
+                    <h5 class="modal-title fw-bold" id="modal-room-name">Tên phòng</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+                        <span class="text-muted fw-semibold">Giá mỗi đêm:</span>
+                        <span class="h4 mb-0 text-accent fw-extrabold" id="modal-room-price">0</span>
+                    </div>a
+                    <form id="booking-form">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-primary-dark">Tên khách hàng</label>
+                            <input type="text" class="form-control rounded-3" id="customer-name" placeholder="Nhập họ và tên">
+                            <div class="error-message" id="err-customer">Tên khách hàng không được để trống!</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label class="form-label fw-bold text-primary-dark">Nhận phòng</label>
+                                <input type="date" class="form-control rounded-3" id="checkin">
+                                <div class="error-message" id="err-checkin">Vui lòng chọn ngày nhận!</div>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label fw-bold text-primary-dark">Trả phòng</label>
+                                <input type="date" class="form-control rounded-3" id="checkout">
+                                <div class="error-message" id="err-checkout">Ngày trả không hợp lệ!</div>
+                            </div>
+                        </div>
+                        <div class="bg-light p-3 rounded-3 mt-4 mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Tổng số đêm:</span>
+                                <strong id="total-nights" class="text-primary-dark">0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Tổng thanh toán:</span>
+                                <strong class="h5 mb-0 text-accent fw-bold" id="total-price">0 VND</strong>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary-dark w-100 rounded-pill fw-bold py-3 shadow-sm">Gửi Yêu Cầu Đặt Phòng</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-primary-dark text-white pt-5 pb-3 mt-5 shadow-lg">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-extrabold mb-3 d-flex align-items-center">
+                        <i class="fa-solid fa-house-chimney me-2 text-accent"></i>StayEasy
+                    </h5>
+                    <p class="text-white-50 small pe-lg-4">
+                        Nền tảng đặt phòng trực tuyến hàng đầu, mang đến cho bạn những trải nghiệm lưu trú tuyệt vời, tiện lợi và mức giá tốt nhất thị trường.
+                    </p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-white-50 hover-accent transition"><i class="fa-brands fa-facebook fs-5"></i></a>
+                        <a href="#" class="text-white-50 hover-accent transition"><i class="fa-brands fa-instagram fs-5"></i></a>
+                        <a href="#" class="text-white-50 hover-accent transition"><i class="fa-brands fa-tiktok fs-5"></i></a>
+                        <a href="#" class="text-white-50 hover-accent transition"><i class="fa-brands fa-youtube fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Khám phá</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white transition">Trang chủ</a></li>
+                        <li><a href="#booking-section" class="text-white-50 text-decoration-none hover-white transition">Danh sách phòng</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white transition">Khuyến mãi</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white transition">Blog du lịch</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Hỗ trợ</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white transition">Trung tâm trợ giúp</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white transition">Điều khoản sử dụng</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white transition">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white transition">Quy định hoàn hủy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-3">Liên hệ</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-3 small text-white-50">
+                        <li><i class="fa-solid fa-location-dot me-2 text-accent"></i> Số 1, Đường Đại Cồ Việt, Hai Bà Trưng, Hà Nội</li>
+                        <li><i class="fa-solid fa-phone me-2 text-accent"></i> +84 123 456 789</li>
+                        <li><i class="fa-solid fa-envelope me-2 text-accent"></i> support@stayeasy.vn</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4 mb-3 opacity-25">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-white-50 small">
+                <span>&copy; 2026 StayEasy. Bản quyền thuộc về sinh viên FIT.</span>
+                <span class="mt-2 mt-md-0">Đến Với <i class="fa-solid fa-heart text-accent"></i> StayEasy Nào</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Js/utils.js"></script>
+    <script src="Js/api.js"></script>
+    <script src="Js/main.js"></script>
+</body>
+</html>
