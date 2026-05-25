@@ -10,54 +10,59 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top glass-nav py-3">
         <div class="container">
-            <a class="navbar-brand fw-extrabold text-primary-dark d-flex align-items-center" href="index.html">
-                <i class="fa-solid fa-house-chimney me-2 text-accent"></i>StayEasy
+            <a class="navbar-brand fw-extrabold text-primary-dark d-flex align-items-center fs-4" href="index.html">
+                <i class="fa-solid fa-hotel me-2 text-primary"></i>StayEasy
             </a>
             <div class="d-flex align-items-center gap-3">
-                
-                
-                <a href="admin.html" class="btn btn-outline-primary-dark rounded-pill px-4">Admin Panel</a>
+                <a class="nav-link" href="login.html"><i class="fa-solid fa-user-gear me-1"></i>Admin</a>
             </div>
         </div>
     </nav>
-    <div class="hero-section">
-        <div class="container h-100 d-flex flex-column justify-content-center">
-            <h1 class="hero-title">Tìm chỗ nghỉ lý<br>tưởng của bạn</h1>
-            <p class="hero-subtitle">Khám phá những không gian tuyệt vời nhất cho kỳ nghỉ sắp tới.</p>
-            <div>
-                <a href="#booking-section" class="btn btn-accent rounded-pill px-5 py-3 fw-bold mt-2">Khám Phá Ngay</a>
-            </div>
+    <div class="hero-section mt-0">
+        <div class="container text-center">
+            <span class="badge bg-orange text-white rounded-pill px-4 py-2 mb-4 fw-bold fs-6 shadow">Nền tảng đặt phòng #1</span>
+            <h1 class="hero-title mb-4">Kỳ Nghỉ Hoàn Hảo<br><span class="text-info">Bắt Đầu Từ Đây</span></h1>
+            <p class="hero-subtitle mb-5">Khám phá hàng ngàn không gian lưu trú sang trọng với mức giá tốt nhất.</p>
+            <a href="#booking-section" class="btn btn-orange rounded-pill px-5 py-3 fw-bold fs-5 shadow-lg mb-5">
+                Khám Phá Ngay <i class="fa-solid fa-arrow-down ms-2"></i>
+            </a>
         </div>
     </div>
     <div class="container" id="booking-section">
-        <div class="filter-wrapper">
+        <div class="filter-glass">
             <div class="row g-3 align-items-end">
-                <div class="col-md-3">
-                    <label class="form-label text-white-50"><i class="fa-solid fa-bed me-1"></i> Loại phòng</label>
+                <div class="col-lg-3 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-bed me-2 text-primary"></i>Loại phòng</label>
                     <select class="form-select border-0 shadow-none" id="filter-type">
-                        <option value="all">Tất cả</option>
-                        <option value="Standard">Standard</option>
-                        <option value="Deluxe">Deluxe</option>
+                        <option value="all">Tất cả hạng phòng</option>
+                        <option value="Standard">Standard (Tiêu chuẩn)</option>
+                        <option value="Deluxe">Deluxe (Cao cấp)</option>
                         <option value="Homestay">Homestay</option>
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <label class="form-label text-white-50"><i class="fa-solid fa-user-group me-1"></i> Khách tối thiểu</label>
+                <div class="col-lg-3 col-md-6">
+                    <label class="form-label"><i class="fa-solid fa-user-group me-2 text-primary"></i>Khách tối thiểu</label>
                     <input type="number" class="form-control border-0 shadow-none" id="filter-guests" placeholder="VD: 2" min="1">
                 </div>
-                <div class="col-md-4">
-                    <label class="form-label text-white-50"><i class="fa-solid fa-money-bills me-1"></i> Mức giá tối đa (VND)</label>
+                <div class="col-lg-4 col-md-8">
+                    <label class="form-label"><i class="fa-solid fa-money-bill-wave me-2 text-primary"></i>Mức giá tối đa (VND)</label>
                     <input type="number" class="form-control border-0 shadow-none" id="filter-price" placeholder="Không giới hạn">
                 </div>
-                <div class="col-md-2">
-                    <button class="btn btn-accent w-100 rounded-pill fw-bold py-2 shadow" onclick="applyFilter()">Tìm Kiếm</button>
+                <div class="col-lg-2 col-md-4">
+                    <button class="btn btn-orange w-100 rounded-3 fw-bold py-3 shadow" onclick="applyFilter()">
+                        <i class="fa-solid fa-magnifying-glass me-1"></i> Tìm Kiếm
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="mt-5 mb-5 pt-3">
-            <h2 class="fw-extrabold mb-4 text-primary-dark">Gợi ý dành cho bạn</h2>
+        <div class="mt-2 mb-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-extrabold text-primary-dark">Gợi ý dành cho bạn</h2>
+                <p class="text-muted">Những căn phòng được yêu thích nhất tuần qua</p>
+            </div>
+            
             <div class="row g-4" id="room-list">
                 </div>
         </div>

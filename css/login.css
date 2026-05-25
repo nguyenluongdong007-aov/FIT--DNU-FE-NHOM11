@@ -1,0 +1,73 @@
+body {
+    background: linear-gradient(rgba(230, 81, 0, 0.75), rgba(194, 65, 12, 0.9));
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+}
+
+.login-glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+    border-radius: 24px;
+    width: 100%;
+}
+
+.form-control-glass {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 14px 15px;
+    color: #2b2b2b;
+    font-weight: 600;
+}
+.form-control-glass:focus {
+    background: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.3);
+}
+.input-group-text-glass {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #fd7e14;
+}
+.btn-orange {
+    background-color: #fd7e14;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+.btn-orange:hover {
+    background-color: #e86e04;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(253, 126, 20, 0.4);
+}
+
+.text-orange {
+    color: #fd7e14 !important;
+}
+
+.hover-white {
+    transition: all 0.3s ease;
+}
+.hover-white:hover {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    transform: translateX(-3px);
+}
+
+.custom-auth-tabs .nav-link {
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
+}
+.custom-auth-tabs .nav-link.active {
+    background-color: #fd7e14 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(253, 126, 20, 0.4);
+}

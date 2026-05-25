@@ -56,3 +56,47 @@ body {
     color: #721c24; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;}
 .badge-type { background-color: #e9ecef; 
     color: #495057; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;}
+
+.custom-admin-tabs .nav-link {
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+.custom-admin-tabs .nav-link.active {
+    background-color: #0b1c2c !important; /* Màu xanh đen sang trọng */
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(11, 28, 44, 0.3);
+}
+
+.admin-stat-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.admin-stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.custom-table th {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 15px 12px;
+    border-bottom: 2px solid #e9ecef;
+}
+.custom-table td {
+    padding: 16px 12px;
+    vertical-align: middle;
+}
+.custom-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+.custom-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+.custom-table .btn-circle {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -42,12 +42,36 @@ body {
 }
 
 .hero-section {
-    background: linear-gradient(rgba(15, 61, 76, 0.4), rgba(15, 61, 76, 0.6)), 
-    url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1920&q=80') center/cover;
-    height: 60vh;
-    min-height: 400px;
-    color: white;
+    background: linear-gradient(rgba(230, 81, 0, 0.65), rgba(194, 65, 12, 0.85)), 
+                url('https://images.unsplash.com/photo-1542314831-c6a4d27ce66f?q=80&w=2000&auto=format&fit=crop') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; 
+    min-height: 80vh; 
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 120px; 
 }
+.bg-orange {
+    background-color: #1490fd !important;
+}
+.text-orange {
+    color: #fd7e14 !important;
+}
+
+.btn-orange {
+    background-color: #f1570ad8;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+.btn-orange:hover {
+    background-color: #e25c13fe;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(253, 126, 20, 0.3);
+}
+
 .hero-title {
     font-size: 4rem;
     font-weight: 800;
@@ -95,6 +119,7 @@ body {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
+
 .favorite-icon {
     position: absolute;
     top: 15px;
@@ -120,7 +145,7 @@ body {
     font-weight: 700;
     font-size: 0.8rem;
 }
-body { background-color: #f8f9fa; }
+body { background-color: #e7ecf1;}
 .hero-section {
     background: linear-gradient(rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.7)),
     url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1920&q=80') center/cover;
@@ -133,7 +158,7 @@ body { background-color: #f8f9fa; }
 .filter-card {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(232, 62, 5, 0.941);
     padding: 20px;
     position: relative;
     z-index: 10;
@@ -142,10 +167,10 @@ body { background-color: #f8f9fa; }
 .room-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .room-card:hover { 
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+    box-shadow: 0 10px 20px rgb(9, 2, 0) !important;
 }
 .card-img-top { height: 220px; object-fit: cover; }
-.price-text { color: #e74c3c; font-size: 1.25rem; font-weight: bold; }
+.price-text { color: #0b1a6e; font-size: 1.25rem; font-weight: bold; }
 
 .error-message {
     color: var(--accent);
@@ -174,4 +199,74 @@ footer {
     color: #ffffff !important;
     text-decoration: underline !important;
     padding-left: 5px;
+}
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.hero-section {
+    background-size: cover;
+    background-attachment: fixed; 
+    min-height: 80vh; 
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 120px;
+}
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    line-height: 1.2;
+}
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #e9ecef;
+    font-weight: 400;
+}
+.filter-glass {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 35px 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transform: translateY(-50%); /* Kéo bộ lọc lùi lên đè vào ảnh nền */
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+.filter-glass label {
+    font-weight: 700;
+    color: #2b2b2b !important;
+}
+.filter-glass .form-control, .filter-glass .form-select {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 12px 15px;
+}
+.room-card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(163, 36, 36, 0.08);
+    background: #ffffff;
+}
+.room-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(13, 110, 253, 0.15);
+}
+.room-image-wrapper {
+    overflow: hidden;
+}
+.room-image {
+    transition: transform 0.6s ease;
+}
+.room-card:hover .room-image {
+    transform: scale(1.08);
 }

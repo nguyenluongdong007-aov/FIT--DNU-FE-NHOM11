@@ -12,43 +12,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById('checkout').addEventListener('change', updatePriceUI);
     document.getElementById('booking-form').addEventListener('submit', submitBooking);
 });
-
 function renderRooms(rooms) {
     const list = document.getElementById('room-list');
     list.innerHTML = rooms.length === 0 ? '<div class="col-12 text-center py-5 text-muted"><h4>Không tìm thấy phòng phù hợp.</h4></div>' : '';
     rooms.forEach(room => {
         const badgeClass = `badge-${room.category}`; 
-        list.innerHTML += `
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 room-card">
-                    <div class="position-relative">
-                        <img src="${room.image}" class="card-img-top" alt="${room.name}">
-                        <div class="favorite-icon"><i class="fa-regular fa-heart"></i></div>
+        const cardHTML = `
+            <div class="col-lg-4 col-md-6">
+                <div class="card room-card h-100">
+                    <div class="room-image-wrapper position-relative">
+                        <img src="${room.image}" class="card-img-top room-image" alt="Hình ảnh phòng" style="height: 250px; object-fit: cover;">
+                        <span class="badge bg-white text-dark position-absolute top-0 end-0 m-3 py-2 px-3 rounded-pill shadow-sm fw-bold">
+                            <i class="fa-solid fa-star text-warning"></i> 4.8
+                        </span>
                     </div>
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="room-badge ${badgeClass}">${room.category}</span>
-                            <span class="text-muted fw-semibold small"><i class="fa-solid fa-user-group me-1"></i>
-                            ${room.guests || 2} khách</span>
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-1">${room.type}</span>
+                            <span class="text-muted small"><i class="fa-solid fa-user me-1"></i> ${room.capacity} khách</span>
                         </div>
-                        <h5 class="card-title fw-extrabold text-primary-dark mb-2">${room.name}</h5>
-                        <div class="d-flex align-items-center mb-3 text-warning small">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <span class="text-muted ms-2 fw-semibold">(10+ đánh giá)</span>
+                        <h4 class="card-title fw-bold text-dark mt-2">${room.name}</h4>
+                        <p class="card-text text-muted small flex-grow-1">${room.description || 'Không gian nghỉ dưỡng tuyệt vời dành cho bạn.'}</p>
+                        <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0 text-primary fw-extrabold">${Number(room.price).toLocaleString('vi-VN')} đ<span class="fs-6 text-muted fw-normal">/đêm</span></h5>
+                            <button class="btn btn-dark rounded-pill px-4 fw-bold" onclick="openBookingModal(${room.id}, '${room.name}', ${room.price})">Đặt ngay</button>
                         </div>
-                        <p class="mb-0 text-accent fw-extrabold fs-5">
-                        ${Utils.formatCurrency(room.price)} <span class="fs-6 text-muted fw-semibold">/ đêm</span></p>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 pb-4 pt-0 px-4 text-center">
-                        <button class="btn btn-outline-primary-dark w-100 rounded-pill py-2" onclick="openBookingModal('${room.id}')">Xem chi tiết</button>
                     </div>
                 </div>
             </div>
         `;
     });
 }
-
 function applyFilter() {
     const type = document.getElementById('filter-type').value;
     const guests = parseInt(document.getElementById('filter-guests').value) || 0;
@@ -60,7 +54,6 @@ function applyFilter() {
     );
     renderRooms(filtered);
 }
-
 function openBookingModal(roomId) {
     currentSelectedRoom = allRooms.find(r => r.id == roomId); 
     document.getElementById('modal-room-name').innerText = currentSelectedRoom.name;
@@ -70,7 +63,6 @@ function openBookingModal(roomId) {
     document.getElementById('total-price').innerText = '0 VND';
     bookingModal.show();
 }
-
 function updatePriceUI() {
     const checkin = document.getElementById('checkin').value;
     const checkout = document.getElementById('checkout').value;
@@ -83,7 +75,6 @@ function updatePriceUI() {
         document.getElementById('total-price').innerText = '0 VND';
     }
 }
-
 $('#booking-form').on('submit', function(e) {
     e.preventDefault();
     const customer = $('#customer-name').val().trim();
@@ -146,7 +137,6 @@ $(window).scroll(function() {
         $('.navbar').removeClass('shadow-lg').css('opacity', '1');
     }
 });
-
 function renderRooms(rooms) {
     const list = $('#room-list');
     list.hide();
