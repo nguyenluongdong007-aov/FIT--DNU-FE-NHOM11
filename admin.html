@@ -109,35 +109,50 @@
                         <input type="hidden" id="room-id">
                         <div class="mb-3">
                             <label class="form-label fw-bold text-primary-dark small">Tên phòng</label>
-                            <input type="text" class="form-control rounded-3 border-0 shadow-sm" id="room-name" required placeholder="VD: Phòng Deluxe Hướng Biển">
+                            <input type="text" class="form-control rounded-3 border-0 shadow-sm" id="room-name" placeholder="VD: Phòng Deluxe Hướng Biển">
+                            <span class="text-danger small error-msg" id="error-room-name"></span>
                         </div>
                         <div class="row mb-3">
                             <div class="col-6">
                                 <label class="form-label fw-bold text-primary-dark small">Loại phòng</label>
                                 <select class="form-select rounded-3 border-0 shadow-sm" id="room-type">
+                                    <option value="">-- Chọn loại phòng --</option>
                                     <option value="Standard">Standard</option>
                                     <option value="Deluxe">Deluxe</option>
                                     <option value="Homestay">Homestay</option>
                                 </select>
+                                <span class="text-danger small error-msg" id="error-room-type"></span>
                             </div>
                             <div class="col-6">
                                 <label class="form-label fw-bold text-primary-dark small">Số khách tối đa</label>
-                                <input type="number" class="form-control rounded-3 border-0 shadow-sm" id="room-guests" required min="1" placeholder="VD: 2">
+                                <input type="number" class="form-control rounded-3 border-0 shadow-sm" id="room-guests" min="1" placeholder="VD: 2">
                             </div>
-                        </div>
+                        </div>                       
                         <div class="mb-3">
                             <label class="form-label fw-bold text-primary-dark small">Giá/Đêm (VND)</label>
-                            <input type="number" class="form-control rounded-3 border-0 shadow-sm" id="room-price" required placeholder="VD: 1500000">
+                            <input type="number" class="form-control rounded-3 border-0 shadow-sm" id="room-price" placeholder="VD: 1500000">
+                            <span class="text-danger small error-msg" id="error-room-price"></span>
                         </div>
                         <div class="mb-4">
                             <label class="form-label fw-bold text-primary-dark small">Link hình ảnh (URL)</label>
-                            <input type="text" class="form-control rounded-3 border-0 shadow-sm" id="room-img" required placeholder="https://...">
+                            <input type="text" class="form-control rounded-3 border-0 shadow-sm" id="room-img" placeholder="https://...">
+                            <span class="text-danger small error-msg" id="error-room-img"></span>
                         </div>
                         <button type="submit" class="btn btn-accent w-100 rounded-pill fw-bold py-2 shadow-sm">Lưu Dữ Liệu</button>
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="promo-box" class="shadow-lg rounded-4 p-3" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: rgba(253, 126, 20, 0.95); backdrop-filter: blur(10px); width: 300px; border: 1px solid white;">
+        <div class="d-flex justify-content-between align-items-center border-bottom border-white pb-2 mb-2">
+            <h6 class="text-white fw-bold mb-0"><i class="fa-solid fa-gift me-2"></i>Ưu đãi chớp nhoáng</h6>
+            <button id="btn-close-promo" class="btn-close btn-close-white" style="font-size: 0.8rem;"></button>
+        </div>
+        <div id="promo-content" class="text-white small">
+            <div class="text-center py-2"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải ưu đãi...</div>
+        </div>
+        <button id="btn-claim-promo" class="btn btn-light text-orange w-100 fw-bold rounded-pill mt-2 btn-sm">Lấy Mã Ngay</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="Js/utils.js"></script>

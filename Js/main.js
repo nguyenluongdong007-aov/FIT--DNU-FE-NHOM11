@@ -180,3 +180,34 @@ function renderRooms(rooms) {
     }
     list.fadeIn(800); 
 }
+$(document).ready(function() {
+    setTimeout(function() {
+        $('#promo-box').slideDown(500).fadeIn(300);
+        loadPromoData();
+    }, 2000);
+    $('#btn-close-promo').click(function() {
+        $('#promo-box').fadeOut(400);
+    });
+    $(document).on('click', '#btn-claim-promo', function() {
+        $(this).html('<i class="fa-solid fa-check"></i> Đã lưu mã: STAY2026');
+        $(this).attr('disabled', 'disabled').removeClass('text-orange').addClass('text-success');
+    });
+    function loadPromoData() {
+        $.ajax({
+            url: API_ROOMS,
+            type: 'GET',
+            success: function(response) {
+                let totalRooms = response.length;
+                let promoHTML = `
+                    <p class="mb-1">Hệ thống đang có <strong>${totalRooms}</strong> phòng sẵn sàng phục vụ!</p>
+                    <p class="mb-0 text-warning fw-bold">Giảm 15% cho 5 khách hàng đầu tiên trong ngày hôm nay.</p>
+                `;
+                $('#promo-content').html(promoHTML);
+            },
+            error: function() {
+                $('#promo-content').html('<p class="mb-0 text-white">Chưa thể tải khuyến mãi lúc này.</p>');
+            }
+        });
+    }
+
+});
